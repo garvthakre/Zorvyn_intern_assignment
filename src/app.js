@@ -1,4 +1,5 @@
 import express from "express";
+import authRoutes from "./modules/auth/auth.routes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { connectDB } from "./config/db.js";
 import { env } from "./config/env.js";
@@ -9,6 +10,7 @@ app.use(express.json());
 app.get('/health',(req,res)=> {
     res.json({status : 'ok' , message : 'Server is running'})
 })
+app.use('/api/auth', authRoutes)
 app.use(errorHandler);
 const start = async () => {
   await connectDB()
