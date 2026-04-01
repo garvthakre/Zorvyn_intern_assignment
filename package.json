@@ -1,0 +1,36 @@
+{
+  "name": "zorvyn_intern_assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  
+  "type": "module"
+,
+  "scripts": {
+     "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garvthakre/Zorvyn_intern_assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garvthakre/Zorvyn_intern_assignment/issues"
+  },
+  "homepage": "https://github.com/garvthakre/Zorvyn_intern_assignment#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.20.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
