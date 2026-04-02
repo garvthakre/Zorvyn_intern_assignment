@@ -7,4 +7,5 @@ export const env = {
   databaseUrl: process.env.DATABASE_URL,
   jwtSecret: process.env.JWT_SECRET,
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d',
+  appUrl : process.env.APP_URL || 'http://localhost:5000'
 }
