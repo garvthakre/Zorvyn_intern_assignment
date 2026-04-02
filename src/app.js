@@ -1,4 +1,5 @@
 import express from "express";
+import morgan from "morgan"
 import authRoutes from "./modules/auth/auth.routes.js";
 import userRoutes from "./modules/users/users.routes.js";
 import recordRoutes from "./modules/records/records.routes.js";
@@ -11,6 +12,7 @@ import { env } from "./config/env.js";
 const app = express();
 
 app.use(express.json());
+app.use(morgan('dev'))
 
 app.get('/health',(req,res)=> {
     res.json({status : 'ok' , message : 'Server is running'})
