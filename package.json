@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "nodemon src/app.js",
     "start": "node src/app.js",
+    "setup": "node src/config/setup.js",
     "seed": "node src/config/seed.js"
   },
   "repository": {
