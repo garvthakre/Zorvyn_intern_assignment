@@ -1,3 +1,4 @@
+// Custom error class for API errors
 export class ApiError extends Error {
   constructor(statusCode, message) {
     super(message)

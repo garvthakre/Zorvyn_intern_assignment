@@ -1,6 +1,7 @@
 import * as RecordsService from './records.service.js'
 import { ApiResponse } from '../../utils/ApiResponse.js'
 
+// Controller functions for records routes
 export const createRecord = async (req, res, next) => {
   try {
     const record = await RecordsService.createRecord(req.body, req.user.id)
@@ -10,6 +11,7 @@ export const createRecord = async (req, res, next) => {
   }
 }
 
+// Controller function to get records with optional filters and pagination
 export const getRecords = async (req, res, next) => {
   try {
     const filters = {
@@ -27,6 +29,7 @@ export const getRecords = async (req, res, next) => {
   }
 }
 
+// Controller function to get a single record by ID
 export const getRecordById = async (req, res, next) => {
   try {
     const record = await RecordsService.getRecordById(Number(req.params.id))
@@ -36,6 +39,7 @@ export const getRecordById = async (req, res, next) => {
   }
 }
 
+// Controller function to update a record by ID
 export const updateRecord = async (req, res, next) => {
   try {
     const record = await RecordsService.updateRecord(Number(req.params.id), req.body)
@@ -45,6 +49,7 @@ export const updateRecord = async (req, res, next) => {
   }
 }
 
+// Controller function to delete a record by ID
 export const deleteRecord = async (req, res, next) => {
   try {
     await RecordsService.deleteRecord(Number(req.params.id))

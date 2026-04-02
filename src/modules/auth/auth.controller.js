@@ -1,6 +1,7 @@
 import * as AuthService from './auth.service.js'
 import { ApiResponse } from '../../utils/ApiResponse.js'
 
+// Controller functions for authentication routes
 export const register = async (req, res, next) => {
   try {
     const result = await AuthService.register(req.body)
@@ -10,6 +11,7 @@ export const register = async (req, res, next) => {
   }
 }
 
+// Controller function for login route
 export const login = async (req, res, next) => {
   try {
     const result = await AuthService.login(req.body)
@@ -19,6 +21,7 @@ export const login = async (req, res, next) => {
   }
 }
 
+// Controller function to get the authenticated user's profile
 export const getMe = async (req, res, next) => {
   try {
     const user = await AuthService.getMe(req.user.id)

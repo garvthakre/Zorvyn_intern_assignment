@@ -1,3 +1,4 @@
+// Utility class for standardizing API responses
 export class ApiResponse {
   constructor(statusCode, data, message = 'Success') {
     this.statusCode = statusCode

@@ -1,5 +1,6 @@
 import { ApiError } from '../utils/ApiError.js'
 
+// Middleware to validate request bodies against a Zod schema
 export const validate = (schema) => {
   return (req, res, next) => {
     const result = schema.safeParse(req.body)

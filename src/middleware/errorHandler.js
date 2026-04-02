@@ -1,5 +1,5 @@
 import { ApiError } from '../utils/ApiError.js'
-
+// Middleware to handle errors and send appropriate responses
 export const errorHandler = (err, req, res, next) => {
   if (err instanceof ApiError) {
     return res.status(err.statusCode).json({

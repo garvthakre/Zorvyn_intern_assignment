@@ -3,6 +3,7 @@ import { db } from '../../config/db.js'
 import { ApiError } from '../../utils/ApiError.js'
 import { generateToken } from '../../utils/generateToken.js'
 
+// Service functions for authentication logic
 export const register = async (dto) => {
   // Check if email already exists
   const { rows: existing } = await db.query(
@@ -31,6 +32,7 @@ export const register = async (dto) => {
   return { user, token }
 }
 
+// Service function for login logic
 export const login = async (dto) => {
   // Find user by email
   const { rows } = await db.query(
@@ -61,6 +63,7 @@ export const login = async (dto) => {
   return { user: safeUser, token }
 }
 
+// Service function to get the authenticated user's profile
 export const getMe = async (userId) => {
   const { rows } = await db.query(
     `SELECT id, name, email, role, status, created_at FROM users WHERE id = $1`,

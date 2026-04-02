@@ -1,6 +1,7 @@
 import { db } from '../../config/db.js'
 import { ApiError } from '../../utils/ApiError.js'
 
+// Service functions for user management operations
 export const getAllUsers = async () => {
   const { rows } = await db.query(
     `SELECT id, name, email, role, status, created_at
@@ -10,6 +11,7 @@ export const getAllUsers = async () => {
   return rows
 }
 
+// Service function to get a single user by ID
 export const getUserById = async (id) => {
   const { rows } = await db.query(
     `SELECT id, name, email, role, status, created_at
@@ -20,6 +22,7 @@ export const getUserById = async (id) => {
   return rows[0]
 }
 
+// Service function to update a user's role
 export const updateUserRole = async (id, role) => {
   await getUserById(id) // throws 404 if not found
 
@@ -33,6 +36,7 @@ export const updateUserRole = async (id, role) => {
   return rows[0]
 }
 
+// Service function to update a user's status (active/inactive)
 export const updateUserStatus = async (id, status) => {
   await getUserById(id) // throws 404 if not found
 
@@ -46,6 +50,7 @@ export const updateUserStatus = async (id, status) => {
   return rows[0]
 }
 
+// Service function to delete a user by ID
 export const deleteUser = async (id) => {
   await getUserById(id) // throws 404 if not found
 

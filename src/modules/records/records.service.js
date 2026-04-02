@@ -1,6 +1,7 @@
 import { db } from '../../config/db.js'
 import { ApiError } from '../../utils/ApiError.js'
 
+// Service functions for financial records
 export const createRecord = async (dto, userId) => {
   const { rows } = await db.query(
     `INSERT INTO financial_records (amount, type, category, date, notes, created_by)
@@ -11,6 +12,7 @@ export const createRecord = async (dto, userId) => {
   return rows[0]
 }
 
+// Service function to get records with optional filters and pagination
 export const getRecords = async (filters) => {
   const conditions = ['deleted_at IS NULL']
   const values = []
@@ -73,6 +75,7 @@ export const getRecords = async (filters) => {
   }
 }
 
+// Service function to get a single record by ID
 export const getRecordById = async (id) => {
   const { rows } = await db.query(
     `SELECT
@@ -87,6 +90,7 @@ export const getRecordById = async (id) => {
   return rows[0]
 }
 
+// Service function to update a record by ID
 export const updateRecord = async (id, dto) => {
   await getRecordById(id)
 
@@ -104,6 +108,7 @@ export const updateRecord = async (id, dto) => {
   return rows[0]
 }
 
+// Service function to delete a record by ID (soft delete)
 export const deleteRecord = async (id) => {
   await getRecordById(id)
   await db.query(

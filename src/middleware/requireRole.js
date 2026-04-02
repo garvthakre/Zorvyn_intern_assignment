@@ -1,5 +1,6 @@
 import { ApiError } from '../utils/ApiError.js'
 
+// Middleware to check if the authenticated user has the required role(s)
 export const requireRole = (...roles) => {
   return (req, res, next) => {
     if (!req.user) {

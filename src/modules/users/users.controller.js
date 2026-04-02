@@ -1,6 +1,7 @@
 import * as UsersService from './users.service.js'
 import { ApiResponse } from '../../utils/ApiResponse.js'
 
+// Controller functions for user management routes
 export const getAllUsers = async (req, res, next) => {
   try {
     const users = await UsersService.getAllUsers()
@@ -10,6 +11,7 @@ export const getAllUsers = async (req, res, next) => {
   }
 }
 
+// Controller function to get a single user by ID
 export const getUserById = async (req, res, next) => {
   try {
     const user = await UsersService.getUserById(Number(req.params.id))
@@ -19,6 +21,7 @@ export const getUserById = async (req, res, next) => {
   }
 }
 
+// Controller function to update a user's role
 export const updateUserRole = async (req, res, next) => {
   try {
     const user = await UsersService.updateUserRole(Number(req.params.id), req.body.role)
@@ -28,6 +31,7 @@ export const updateUserRole = async (req, res, next) => {
   }
 }
 
+// Controller function to update a user's status (active/inactive)
 export const updateUserStatus = async (req, res, next) => {
   try {
     const user = await UsersService.updateUserStatus(Number(req.params.id), req.body.status)
@@ -37,6 +41,7 @@ export const updateUserStatus = async (req, res, next) => {
   }
 }
 
+// Controller function to delete a user by ID
 export const deleteUser = async (req, res, next) => {
   try {
     await UsersService.deleteUser(Number(req.params.id))
