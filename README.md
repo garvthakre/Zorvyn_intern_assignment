@@ -70,8 +70,8 @@ Role checks happen at the middleware level using a `requireRole()` guard so the 
 
 You'll need Node.js and PostgreSQL installed locally.
 ```bash
-git clone https://github.com/yourusername/finance-dashboard
-cd finance-dashboard
+git clone https://github.com/yourusername/zorvyn_intern_assignment
+cd zorvyn_intern_assignment
 npm install
 ```
 
