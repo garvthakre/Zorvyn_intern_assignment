@@ -27,6 +27,18 @@ Kept the folder structure modular — each feature (auth, users, records, dashbo
 
 ---
 
+## Live API
+
+Base URL: https://zorvyn-intern-assignment.onrender.com
+
+Swagger docs: https://zorvyn-intern-assignment.onrender.com/api/docs
+
+Test credentials:
+- admin@example.com / admin123
+- analyst@example.com / analyst123
+- viewer@example.com / viewer123
+
+---
 ## Project structure
 ```
 src/
@@ -47,8 +59,6 @@ Each module has its own routes, controller, service and validator. Middleware, c
 
 ## Roles
 
-## Roles
-
 Three roles in the system — **viewer**, **analyst**, and **admin**.
 
 Viewer is the default. They can browse records and see dashboard summaries
@@ -64,7 +74,6 @@ users, changing roles — all of that is admin only.
 Role checks are handled in middleware via a `requireRole()` guard so the
 controllers stay clean and the access logic lives in one place.
 
-Role checks happen at the middleware level using a `requireRole()` guard so the controller stays clean.
 
 ---
 
@@ -90,6 +99,11 @@ Create the database and run the schema:
 ```bash
 psql -U postgres -c "CREATE DATABASE finance_dashboard"
 psql -U postgres -d finance_dashboard -f src/config/schema.sql
+```
+
+Seed the database with sample data:
+```bash
+npm run seed
 ```
 
 Start the dev server:
@@ -200,7 +214,6 @@ GET /api/dashboard/summary
 ## If I were to extend this
 
 - Add refresh tokens
-- Rate limiting on auth routes
 - More granular permissions (analyst creating draft records for example)
 - Unit tests on service layer
  
