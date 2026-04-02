@@ -22,6 +22,8 @@ Kept the folder structure modular — each feature (auth, users, records, dashbo
 - JWT for auth
 - Zod for validation
 - bcryptjs for password hashing
+- Morgan for request logging
+- express-rate-limit for rate limiting
 
 ---
 
@@ -96,6 +98,9 @@ npm run dev
 ```
 
 Hit `http://localhost:5000/health` to confirm it's running.
+
+Once the server is running you'll see every incoming request 
+logged in the console with method, path, status and response time.
 
 ---
 
@@ -189,6 +194,7 @@ GET /api/dashboard/summary
 - Tokens expire in 7 days. No refresh token for now — kept auth simple intentionally.
 - Chose LEFT JOIN when fetching records with creator info so records don't disappear if the creator account gets deleted.
 
+- Auth routes are rate limited to 10 requests per 15 minutes to prevent brute force attacks. General API routes allow 60 requests per minute.
 ---
 
 ## If I were to extend this
