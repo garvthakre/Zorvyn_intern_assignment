@@ -1,4 +1,4 @@
-import { db, connectDB } from './db.js'
+import { db, connectDB } from '../db.js'
 
 const setup = async () => {
   await connectDB()

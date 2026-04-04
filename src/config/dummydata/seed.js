@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs'
-import { db, connectDB } from './db.js'
+import { db, connectDB } from '../db.js'
 
 const users = [
   {
